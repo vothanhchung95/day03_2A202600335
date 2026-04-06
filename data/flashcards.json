@@ -1,0 +1,21 @@
+{
+  "Test Card set": {
+    "name": "Test Card set",
+    "cards": [
+      {
+        "front": "Hello",
+        "back": "Xin chao",
+        "synonyms": [
+          "Hi"
+        ]
+      },
+      {
+        "front": "Hi",
+        "back": "Xin chao",
+        "synonyms": [
+          "Hello"
+        ]
+      }
+    ]
+  }
+}
