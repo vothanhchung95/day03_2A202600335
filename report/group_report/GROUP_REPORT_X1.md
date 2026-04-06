@@ -1,7 +1,7 @@
 # Group Report: Lab 3 - Production-Grade Agentic System
 
 - **Team Name**: X1
-- **Team Members**: Nguyen Ho Bao Thien - 2A202600163, Hoang Thi Thanh Tuyen - 2A202600074, Duong Khoa Diem - 2A202600366, Do The Anh - 2A202600040, Vo Thanh Chung - 2A202600335
+- **Team Members**: Nguyen Ho Bao Thien - 2A202600163, Hoang Thi Thanh Tuyen - 2A202600074, Duong Khoa Diem - 2A202600366, Do The Anh - 2A202600040, Vo Thanh Chung - 2A202600335, Le Minh Khang - 2A202600102
 - **Deployment Date**: 2026-04-06
 
 ---
