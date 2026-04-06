@@ -33,7 +33,7 @@ def oxford_define(word: str):
     return defs[0] if defs else "No definition found"
 
 
-if __name__ == "__main__":
-    word = input("Enter a word to define: ")
-    definition = oxford_define(word)
-    print(f"Definition of '{word}': {definition}")
+# if __name__ == "__main__":
+#     word = input("Enter a word to define: ")
+#     definition = oxford_define(word)
+#     print(f"Definition of '{word}': {definition}")

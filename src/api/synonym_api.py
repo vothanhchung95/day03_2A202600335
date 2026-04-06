@@ -3,41 +3,30 @@ from typing import List
 
 def get_synonyms(word: str) -> List[str]:
     """
-    Sử dụng Datamuse API để lấy danh sách các từ đồng nghĩa.
-    Đây là API công cộng, không yêu cầu API Key cho các tác vụ thông thường.
+    Use the Datamuse API to retrieve a list of synonyms.
+    This is a public API and does not require an API key for basic usage.
     
     Args:
-        word (str): Từ tiếng Anh cần tìm từ đồng nghĩa.
+        word (str): The English word to find synonyms for.
         
     Returns:
-        List[str]: Danh sách các từ đồng nghĩa.
+        List[str]: A list of synonyms.
     """
-    # Endpoint của Datamuse: rel_syn tìm các từ đồng nghĩa (synonyms)
+    # Datamuse endpoint: rel_syn is used to find synonyms
     api_url = f"https://api.datamuse.com/words?rel_syn={word}"
 
     try:
         response = requests.get(api_url, timeout=10)
         response.raise_for_status()
         
-        # Dữ liệu trả về có dạng: [{"word": "cheerful", "score": 1234}, ...]
+        # The response format: [{"word": "cheerful", "score": 1234}, ...]
         data = response.json()
         
-        # Trích xuất chỉ lấy phần chữ (word) từ danh sách kết quả
+        # Extract only the word field from the results
         synonyms = [item['word'] for item in data]
         
         return synonyms
 
     except requests.exceptions.RequestException as e:
-        print(f"Lỗi kết nối API: {e}")
+        print(f"API connection error: {e}")
         return []
-
-
-# if __name__ == "__main__":
-#     search_word = str(input())
-#     result = get_synonyms(search_word)
-    
-#     if result:
-#         print(f"Các từ đồng nghĩa của '{search_word}':")
-#         print(result)
-#     else:
-#         print(f"Không tìm thấy từ đồng nghĩa nào cho '{search_word}'.")
