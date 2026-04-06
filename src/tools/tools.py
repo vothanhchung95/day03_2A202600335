@@ -1,4 +1,6 @@
 from src.flashcard.storage import FlashcardStorage
+from src.api.synonym_api import get_synonyms
+from src.api.oxford_tool import oxford_define
 
 # Initialize storage
 storage = FlashcardStorage()
@@ -38,6 +40,25 @@ def list_cards_func(set_name: str):
     except Exception as e:
         return f"Error: {str(e)}"
 
+# --- NEW: synonym tool function ---
+
+def get_synonyms_func(word: str):
+    try:
+        synonyms = get_synonyms(word)
+        if not synonyms:
+            return f"No synonyms found for '{word}'."
+        return ", ".join(synonyms)
+    except Exception as e:
+        return f"Error: {str(e)}"
+
+def get_oxford_definition_func(word: str):
+    try:
+        definition = oxford_define(word)
+        if not definition:
+            return f"No official definition found for '{word}'."
+        return definition
+    except Exception as e:
+        return f"Error calling Oxford API: {str(e)}"
 # --- Tool definitions ---
 
 tools = [
@@ -60,5 +81,15 @@ tools = [
         "name": "list_cards_in_set",
         "description": "View all cards in a flashcard set. Parameter: set_name.",
         "func": list_cards_func
+    },
+    {
+        "name": "get_synonyms",
+        "description": "Get synonyms for an English word. Parameter: word.",
+        "func": get_synonyms_func
+    },
+    {
+        "name": "get_oxford_definition",
+        "description": "Get the official English definition and usage from Oxford Dictionary. Best for complex words or formal learning. Parameter: word.",
+        "func": get_oxford_definition_func
     }
 ]

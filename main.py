@@ -3,15 +3,15 @@ from dotenv import load_dotenv
 from src.core.gemini_provider import GeminiProvider
 from src.agent.agent import ReActAgent
 from src.tools.tools import tools
-
+from src.core.openai_provider import OpenAIProvider
 # 1. Load enviroment variables
 load_dotenv()
 
 def main():
-    # 2. Gemini Provider
-    llm = GeminiProvider(
-        model_name=os.getenv("DEFAULT_MODEL", "gemini-1.5-flash"),
-        api_key=os.getenv("GEMINI_API_KEY")
+    # 2. LLM Provider
+    llm = OpenAIProvider(
+        model_name=os.getenv("DEFAULT_MODEL"),
+        api_key=os.getenv("OPENAI_API_KEY")
     )
 
     # 3. Initialize Agent with tools
